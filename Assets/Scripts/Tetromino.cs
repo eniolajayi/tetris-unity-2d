@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 // The proper definition for the tetris blocks
-// check wikipedia
+// check wikipedia https://tetris.wiki/Tetromino
 public enum Tetromino
 {
     I,O,T,J,L,S,Z
