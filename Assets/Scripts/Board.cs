@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
-//TODO Movement of tetris pieces
 // Controls overrall state of the game
 public class Board : MonoBehaviour
 {
