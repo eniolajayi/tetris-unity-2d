@@ -107,6 +107,20 @@ public class Piece : MonoBehaviour
         }
     }
 
+    private bool TestWallKicks(int rotationIndex, int rotationDirection)
+    {
+        int wallKickIndex = GetWallKickIndex(rotationIndex,rotationDirection);
+        for (int i = 0; i < this.data.wallKicks.GetLength(1); i++)
+        {
+            Vector2Int translation = this.data.wallKicks[wallKickIndex, i];
+            if(Move(translation)){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     private int GetWallKickIndex(int rotationIndex, int rotationDirection)
     {
         int wallKickIndex = rotationIndex *2;
