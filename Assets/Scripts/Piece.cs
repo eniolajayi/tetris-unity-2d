@@ -75,7 +75,11 @@ public class Piece : MonoBehaviour
         }
         return valid;
     }
-
+    /*
+    NOTE: Wall Kicks are used to reset a piece into a proper
+    position if the piece is out of bounds when it rotates
+    like the walls kicking back to place
+    */
     private void Rotate(int direction)
     {
         this.rotationIndex = Wrap(this.rotationIndex +direction, 0, 4);
