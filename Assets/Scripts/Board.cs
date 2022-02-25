@@ -45,4 +45,12 @@ public class Board : MonoBehaviour
 
         }
     }
+    public void Clear(Piece piece)
+    {
+        for (int i = 0; i < piece.cells.Length; i++)
+        {
+            Vector3Int tilePosition = piece.cells[i] + piece.position;
+            this.tilemap.SetTile(tilePosition,null);
+        }
+    }
 }
