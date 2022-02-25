@@ -26,4 +26,18 @@ public class Piece : MonoBehaviour
             this.cells[i] = (Vector3Int)data.cells[i];
         }
     }
+    private bool Move(Vector2Int translation)
+    {
+        // calculate new position to check if valid
+        Vector3Int newPosition = this.position;
+        newPosition.x += translation.x;
+        newPosition.y += translation.y;
+
+        bool valid = this.board.IsValidPosition(this,newPosition);
+
+        if(valid){
+            this.position = newPosition;
+        }
+        return valid;
+    }
 }
