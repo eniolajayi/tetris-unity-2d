@@ -107,6 +107,15 @@ public class Piece : MonoBehaviour
         }
     }
 
+    private int GetWallKickIndex(int rotationIndex, int rotationDirection)
+    {
+        int wallKickIndex = rotationIndex *2;
+
+        if(rotationDirection < 0){
+            wallKickIndex--;
+        }
+        return Wrap(wallKickIndex,0,this.wallKicks.GetLength(0));
+    }
     private int Wrap(int input, int min, int max)
     {
         if(input < min){
