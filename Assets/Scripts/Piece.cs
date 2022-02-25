@@ -46,6 +46,11 @@ public class Piece : MonoBehaviour
 
         this.board.Set(this);
     }
+    private void HardDrop(){
+        while(Move(Vector2Int.down)){
+            continue;
+        }
+    }
     private bool Move(Vector2Int translation)
     {
         // calculate new position to check if valid
