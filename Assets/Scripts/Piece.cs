@@ -82,7 +82,19 @@ public class Piece : MonoBehaviour
     */
     private void Rotate(int direction)
     {
+        int originalRotation = this.rotationIndex;
         this.rotationIndex = Wrap(this.rotationIndex +direction, 0, 4);
+        ApplyRotationMatrix(direction);
+
+        if(!TestWallKicks(this.rotationIndex, direction))
+        {
+            this.rotationIndex = originalRotation;
+            ApplyRotationMatrix(-direction);
+        }
+    }
+
+    private void ApplyRotationMatrix(int direction)
+    {
         for(int i = 0;i < this.data.cells.Length; i++)
         {
            Vector3 cell = this.cells[i];
@@ -106,7 +118,6 @@ public class Piece : MonoBehaviour
            this.cells[i] = new Vector3Int(x,y,0);
         }
     }
-
     private bool TestWallKicks(int rotationIndex, int rotationDirection)
     {
         int wallKickIndex = GetWallKickIndex(rotationIndex,rotationDirection);
