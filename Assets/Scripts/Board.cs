@@ -79,6 +79,19 @@ public class Board : MonoBehaviour
         }
         return true;
     }
+    private bool IsLineFull(int row)
+    {
+         RectInt bounds = this.Bounds;
+         for(int col = bounds.xMin; col< bounds.xMax; col++){
+             Vector3Int position = new Vector3Int(col, row, 0);
+             if(!this.tilemap.HasTile(position)){
+                 return false;
+             }
+         }
+         return true;
+
+    }
+
     private void LineClear(int row)
     {
         RectInt bounds = this.Bounds;
