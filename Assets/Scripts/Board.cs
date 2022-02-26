@@ -79,6 +79,20 @@ public class Board : MonoBehaviour
         }
         return true;
     }
+    public void ClearLines()
+    {
+        RectInt bounds = this.Bounds;
+
+        int row = bounds.yMin;
+        while(row < bounds.yMax){
+            if(IsLineFull(row)){
+                LineClear(row);
+            } else {
+                row++;
+            }
+        }
+
+    }
     private bool IsLineFull(int row)
     {
          RectInt bounds = this.Bounds;
