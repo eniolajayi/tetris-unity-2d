@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
+// TODO Scoring System, Difficulty curve
 // Controls overrall state of the game
 public class Board : MonoBehaviour
 {
